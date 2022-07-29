@@ -1,0 +1,1 @@
+# guilty-gear-strive-client
