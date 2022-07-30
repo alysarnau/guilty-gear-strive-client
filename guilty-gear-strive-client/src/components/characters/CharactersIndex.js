@@ -50,7 +50,7 @@ const CharactersIndex = (props) => {
     if (!characters) {
         return <LoadingScreen />
     } else if (characters.length === 0) {
-        return <p>No characters yet. Better add some.</p>
+        return <p>No characters yet. Go add some!</p>
     }
 
     const characterCards = characters.map(character => (
@@ -59,7 +59,7 @@ const CharactersIndex = (props) => {
             <Card.Body>
                 <Card.Text>
                     {/* TODO: THIS NEEDS TO BE SET UP */}
-                    <Link to={`/characters/${character.id}`}>View { character.name }</Link>
+                    <Link to={`/characters/${character.id}`}>View Character Details</Link>
                 </Card.Text>
             </Card.Body>
         </Card>

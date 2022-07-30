@@ -13,7 +13,7 @@ import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 import ShowCharacter from './components/characters/ShowCharacter'
-
+import CreateCharacter from './components/characters/CreateCharacter'
 
 const App = () => {
 
@@ -72,7 +72,13 @@ const App = () => {
 					/>
 					<Route
 						path="/characters/:id"
-						element={ <ShowCharacter msgAlert={msgAlert} />} 
+						element={ <ShowCharacter msgAlert={msgAlert} user={user}/>} 
+					/>
+					<Route 
+						path="/addCharacter"
+						element={ 
+								<CreateCharacter msgAlert={msgAlert}/>
+						}
 					/>
 				</Routes>
 				{msgAlerts.map((msgAlert) => (
