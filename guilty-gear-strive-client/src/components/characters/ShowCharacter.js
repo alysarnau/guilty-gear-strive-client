@@ -54,15 +54,14 @@ const ShowCharacter = (props) => {
                 <Card.Body>
                     <Card.Text>
                         <div><small>Race: { character.race }</small></div>
-                        <div><small>Age: { character.age ? character.age : 'unknown'}</small></div>
+                        <div><small>Age: { character.age ? character.age : 'Unknown'}</small></div>
                         <div><small>Origin: { character.origin }</small></div>
                         <div><small>Eye Color: { character.eyeColor }</small></div>
                         <div><small>Blood Type: { character.bloodType }</small></div>
                         <div><small>Height: { character.height } cm</small></div>
                         <div><small>Weight: { character.weight } kg</small></div>
-                        <div><small>Height: { character.height } cm</small></div>
                         <div><small>
-                            Are They a Dandy?: { character.isADandy ? 'yes' : 'no'}
+                            Are They a Dandy? { character.isADandy ? 'Yes' : 'No'}
                         </small></div>
                     </Card.Text>
                 </Card.Body>
