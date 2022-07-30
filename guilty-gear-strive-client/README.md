@@ -31,7 +31,7 @@ A front-end client for the Guilty Gear Strive API.
 | /sign-out | allows users to sign out of their account |
 | /change-password | allows user to change their password |
 
-### Pet Views
+### Character Views
 
 | Route     | Description                         |
 |-----------|-------------------------------------|
