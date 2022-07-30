@@ -14,11 +14,6 @@ const authenticatedOptions = (
 			</Link>
 		</Nav.Link>
 		<Nav.Link>
-			<Link to='addCharacter' style={linkStyle}>
-				Add Character to Roster
-			</Link>
-		</Nav.Link>
-		<Nav.Link>
 			<Link to='sign-out' style={linkStyle}>
 				Sign Out
 			</Link>
@@ -44,13 +39,18 @@ const alwaysOptions = (
 				View Roster
 			</Link>
 		</Nav.Link>
+		<Nav.Link>
+			<Link to='addCharacter' style={linkStyle}>
+				Add Character to Roster
+			</Link>
+		</Nav.Link>
 	</>
 )
 
 const Header = ({ user }) => (
 	<Navbar style={{background: '#570602'}}  variant='dark' expand='md'>
 		<Navbar.Brand>
-            <Link to='/' class="heavenOrHell" style={linkStyle}>
+            <Link to='/' className="heavenOrHell" style={linkStyle}>
                 Guilty Gear -Strive- App
             </Link>
         </Navbar.Brand>

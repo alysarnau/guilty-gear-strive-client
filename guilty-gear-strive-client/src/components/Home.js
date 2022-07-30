@@ -7,7 +7,7 @@ const Home = (props) => {
 	const { msgAlert } = props
 	return (
 		<>	
-			<h1 class="heavenOrHell">Character Roster</h1>
+			<h1 className="heavenOrHell">Character Roster</h1>
 			<h2>“Mankind knew they cannot change society. So instead of reflecting on themselves, they blamed the Beasts.”</h2>
 			<CharactersIndex
 				msgAlert={ msgAlert }

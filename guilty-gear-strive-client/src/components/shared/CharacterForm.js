@@ -25,34 +25,33 @@ const CharacterForm = (props) => {
     // this will handle form submission
     const onCreate = (e) => {
         e.preventDefault()
-        const { msgAlert, setUser } = props
+        const { msgAlert } = props
         createCharacter(character)
             .then(res => console.log(res))
             .then(() => {
                 msgAlert({
 					heading: 'Create Character Success',
-                    // TODO: update this to new character message
-					message: messages.signUpSuccess,
+					message: messages.createCharacterSuccess,
 					variant: 'success',
 				})
             })
             .then(() => navigate('/'))
-            .catch((error) => {console.log(error)
-				// msgAlert({
-				// 	heading: 'Sign Up Failed with error: ' + error.message,
-				// 	message: messages.signUpFailure,
-				// 	variant: 'danger',
-				// })
+            .catch((error) => {
+				msgAlert({
+					heading: 'Create character failed with error: ' + error.message,
+					message: messages.createCharacterFailure,
+					variant: 'danger',
+				})
 			})
         }
 
     return (
         <div>
             <Form onSubmit={onCreate}>
-                <Form.Label htmlFor='Name'>Character Name</Form.Label>
+                <Form.Label htmlFor='name'>Character Name</Form.Label>
                 <Form.Control 
                     name="name" 
-                    id="Name" 
+                    id="name" 
                     type="text" 
                     placeholder="Enter Character Name"
                     value={ character.name }
@@ -64,7 +63,7 @@ const CharacterForm = (props) => {
                     id="race" 
                     type="text" 
                     placeholder="Enter Character Race"
-                    value={ character.type }
+                    value={ character.race }
                     onChange={ handleChange }
                 />
                 <Form.Label htmlFor='age'>Character Age (if applicable)</Form.Label>
@@ -75,6 +74,15 @@ const CharacterForm = (props) => {
                     type="number" 
                     placeholder="Enter Character Age"
                     value={ character.age }
+                    onChange={ handleChange }
+                />
+                <Form.Label htmlFor='origin'>Character Origin</Form.Label>
+                <Form.Control 
+                    name="origin" 
+                    id="origin" 
+                    type="text" 
+                    placeholder="Enter Character Origin"
+                    value={ character.origin }
                     onChange={ handleChange }
                 />
                 <Form.Label htmlFor='eyeColor'>Character Eye Color</Form.Label>

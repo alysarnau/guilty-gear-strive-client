@@ -32,12 +32,12 @@ const CreateCharacter = (props) => {
             }
         })
     }
-    const { msgAlert, user } = props
+    const { msgAlert } = props
     return (
         <div>
-            <h1><span class="heavenOrHell">HEAVEN OR HELL...FIGHT!</span></h1>
+            <h1><span className="heavenOrHell">HEAVEN OR HELL...FIGHT!</span></h1>
             <h3>New Character Creation:</h3>
-            <CharacterForm character={ character } handleChange={ handleChange } msgAlert={msgAlert} user={user}/>
+            <CharacterForm character={ character } handleChange={ handleChange } msgAlert={msgAlert}/>
         </div>
     );
 }
