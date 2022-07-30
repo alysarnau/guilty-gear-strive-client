@@ -2,6 +2,7 @@ import { useState } from 'react'
 import CharacterForm from '../shared/CharacterForm';
 
 const CreateCharacter = (props) => {
+    const { user } = props
     const [character, setCharacter] = useState({
         name: '',
         race: '',
@@ -12,6 +13,7 @@ const CreateCharacter = (props) => {
         height: '',
         weight: '',
         isADandy: false,
+        // owner: user._id,
     })
     // this will handle typing in the form!
     const handleChange = (e) => {
@@ -37,7 +39,7 @@ const CreateCharacter = (props) => {
         <div>
             <h1><span className="heavenOrHell">HEAVEN OR HELL...FIGHT!</span></h1>
             <h3>New Character Creation:</h3>
-            <CharacterForm character={ character } handleChange={ handleChange } msgAlert={msgAlert}/>
+            <CharacterForm character={ character } handleChange={ handleChange } msgAlert={msgAlert} user={user}/>
         </div>
     );
 }

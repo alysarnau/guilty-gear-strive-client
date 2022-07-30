@@ -14,6 +14,11 @@ const authenticatedOptions = (
 			</Link>
 		</Nav.Link>
 		<Nav.Link>
+			<Link to='addCharacter' style={linkStyle}>
+				Add Character to Roster
+			</Link>
+		</Nav.Link>
+		<Nav.Link>
 			<Link to='sign-out' style={linkStyle}>
 				Sign Out
 			</Link>
@@ -37,11 +42,6 @@ const alwaysOptions = (
 		<Nav.Link>
 			<Link to='/' style={linkStyle}>
 				View Roster
-			</Link>
-		</Nav.Link>
-		<Nav.Link>
-			<Link to='addCharacter' style={linkStyle}>
-				Add Character to Roster
 			</Link>
 		</Nav.Link>
 	</>

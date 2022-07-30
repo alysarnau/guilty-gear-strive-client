@@ -25,7 +25,8 @@ const CharacterForm = (props) => {
     // this will handle form submission
     const onCreate = (e) => {
         e.preventDefault()
-        const { msgAlert } = props
+        const { msgAlert, user } = props
+        console.log('the user', user)
         createCharacter(character)
             .then(res => console.log(res))
             .then(() => {

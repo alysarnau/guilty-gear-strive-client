@@ -77,7 +77,9 @@ const App = () => {
 					<Route 
 						path="/addCharacter"
 						element={ 
-								<CreateCharacter msgAlert={msgAlert}/>
+								<RequireAuth user={user}>
+									<CreateCharacter msgAlert={msgAlert} user={user}/>
+								</RequireAuth>
 						}
 					/>
 				</Routes>
