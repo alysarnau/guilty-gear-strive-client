@@ -6,8 +6,7 @@ import Card from 'react-bootstrap/Card'
 import { Link } from 'react-router-dom'
 
 import LoadingScreen from '../shared/LoadingScreen'
-// TODO: HOOK THIS UP with routing!
-import { getAllCharacters } from '../../api/pets'
+import { getAllCharacters } from '../../api/characters'
 import messages from '../shared/AutoDismissAlert/messages'
 
 // CharactersIndex should make a request to the api
@@ -36,7 +35,6 @@ const CharactersIndex = (props) => {
             .catch(err => {
                 msgAlert({
                     heading: 'Error Getting Characters',
-                    // TODO: ADD ERROR MESSAGE
                     message: messages.getCharactersFailure,
                     variant: 'danger',
                 })
