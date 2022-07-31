@@ -28,3 +28,14 @@ export const createCharacter = (character) => {
 		},
 	})
 }
+
+export const deleteCharacter = (id) => {
+	return axios.delete(`${apiUrl}/characters/${id}`)
+	// {
+	// 	url:,
+	// 	method: 'DELETE',
+	// 	// headers: {
+	// 	// 	Authorization: `Token token=${user.token}`,
+	// 	// },
+	// })
+}

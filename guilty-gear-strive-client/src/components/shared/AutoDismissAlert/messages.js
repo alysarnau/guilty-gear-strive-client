@@ -9,6 +9,8 @@ const messages = {
 	getCharactersFailure: 'Error fetching characters.',
 	createCharacterFailure: 'Error creating character, please try again.',
 	createCharacterSuccess: "Successfully created a new character!",
+	deleteCharacterSuccess: "Successfully deleted character.",
+	deleteCharacterFailure: 'Error deleting character, please try again.',
 }
 
 module.exports = messages

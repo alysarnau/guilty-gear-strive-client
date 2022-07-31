@@ -4,8 +4,9 @@ import {
     Card 
 } from 'react-bootstrap';
 import LoadingScreen from '../shared/LoadingScreen';
+import DeleteCharacter from '../shared/DeleteCharacter';
 // import getOnePet function
-import { getOneCharacter } from '../../api/characters';
+import { getOneCharacter } from '../../api/characters'
 // this will allow us to set our params
 import { 
     useParams,
@@ -65,6 +66,7 @@ const ShowCharacter = (props) => {
                             </small></div>
                     </Card.Text>
                 </Card.Body>
+                <DeleteCharacter msgAlert={msgAlert} character={character}/>
             </Card>
         </Container>
     );
