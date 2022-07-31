@@ -11,7 +11,7 @@ import {
 } from 'react-router-dom';
 
 const DeleteCharacter = (props) => {
-    // const { character } = props
+    const { character } = props
     const { id } = useParams();
     const navigate = useNavigate()
     console.log('character', character)

@@ -14,6 +14,7 @@ import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 import ShowCharacter from './components/characters/ShowCharacter'
 import CreateCharacter from './components/characters/CreateCharacter'
+import UpdateCharacter from './components/characters/UpdateCharacter'
 
 const App = () => {
 

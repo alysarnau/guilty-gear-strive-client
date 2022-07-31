@@ -1,8 +1,9 @@
 import React from 'react';
 import { 
     Container,
-    Card 
+    Card
 } from 'react-bootstrap';
+import { Link } from 'react-router-dom'
 import LoadingScreen from '../shared/LoadingScreen';
 import DeleteCharacter from '../shared/DeleteCharacter';
 // import getOnePet function
@@ -19,6 +20,7 @@ import {
     useState, 
     useEffect 
 } from 'react'
+import UpdateCharacter from './UpdateCharacter';
 
 const ShowCharacter = (props) => {
     const [character, setCharacter] = useState(null)
@@ -33,6 +35,7 @@ const ShowCharacter = (props) => {
     useEffect(() => {
         getOneCharacter(id)
             .then(res => setCharacter(res.data.character))
+            .then(console.log(character))
             .catch(err => {
                 msgAlert({
                     heading: 'Error getting character',
@@ -66,7 +69,7 @@ const ShowCharacter = (props) => {
                             </small></div>
                     </Card.Text>
                 </Card.Body>
-                <Link to={`/updateCharacter/${character.id}`}>Update Character</Link>
+                <UpdateCharacter character={character} />
                 <DeleteCharacter msgAlert={msgAlert} character={character}/>
             </Card>
         </Container>

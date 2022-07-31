@@ -2,18 +2,21 @@ import { useState } from 'react'
 import CharacterForm from '../shared/CharacterForm';
 
 const UpdateCharacter = (props) => {
+    console.log('here are the props!', props)
     const { user } = props
+    const oldCharacter = props.character
+    console.log(oldCharacter)
     // NOT SURE HOW TO IMPORT CHARACTER WHILE ALSO DECLARING IT?
     const [character, setCharacter] = useState({
-        name: props.character.name,
-        race: props.character.race,
-        age: props.character.age,
-        origin: props.character.origin,
-        eyeColor: props.character.eyeColor,
-        bloodType: props.character.bloodType,
-        height: props.character.height,
-        weight: props.character.weight,
-        isADandy: props.character.isADandy,
+        name: oldCharacter.name,
+        race: oldCharacter.race,
+        age: oldCharacter.age,
+        origin: oldCharacter.origin,
+        eyeColor: oldCharacter.eyeColor,
+        bloodType: oldCharacter.bloodType,
+        height: oldCharacter.height,
+        weight: oldCharacter.weight,
+        isADandy: oldCharacter.isADandy,
         // owner: user._id,
     })
     // this will handle typing in the form!
