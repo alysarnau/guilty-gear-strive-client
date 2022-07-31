@@ -66,6 +66,7 @@ const ShowCharacter = (props) => {
                             </small></div>
                     </Card.Text>
                 </Card.Body>
+                <Link to={`/updateCharacter/${character.id}`}>Update Character</Link>
                 <DeleteCharacter msgAlert={msgAlert} character={character}/>
             </Card>
         </Container>

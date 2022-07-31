@@ -58,7 +58,6 @@ const CharactersIndex = (props) => {
             <Card.Header>{ character.name }</Card.Header>
             <Card.Body>
                 <Card.Text>
-                    {/* TODO: THIS NEEDS TO BE SET UP */}
                     <Link to={`/characters/${character.id}`}>View Character Details</Link>
                 </Card.Text>
             </Card.Body>
