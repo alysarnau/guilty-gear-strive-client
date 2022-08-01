@@ -84,9 +84,7 @@ const App = () => {
 					<Route 
 						path="/updateCharacter/:id"
 						element={ 
-							<RequireAuth user={user}>
-									<EditCharacterModal msgAlert={msgAlert} user={user}/>
-							</RequireAuth>
+							<EditCharacterModal msgAlert={msgAlert} user={user}/>
 						}
 					/>
 				</Routes>

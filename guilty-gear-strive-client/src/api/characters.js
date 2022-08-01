@@ -30,14 +30,11 @@ export const createCharacter = (character) => {
 }
 
 // UPDATE
-export const updateCharacter = (user, updatedCharacter) => {
+export const updateCharacter = (updatedCharacter) => {
     console.log('this is updated character', updatedCharacter)
 	return axios({
 		url: `${apiUrl}/characters/${updatedCharacter.id}`,
 		method: 'PATCH',
-		headers: {
-			Authorization: `Token token=${user.token}`,
-		},
 		data: { character: updatedCharacter } ,
 	})
 }
@@ -48,8 +45,5 @@ export const removeCharacter = (user, characterId) => {
 	return axios({
 		url: `${apiUrl}/characters/${characterId}`,
 		method: 'DELETE',
-		headers: {
-			Authorization: `Token token=${user.token}`,
-		}
 	})
 }

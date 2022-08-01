@@ -35,7 +35,6 @@ const ShowCharacter = (props) => {
     const { user, msgAlert } = props;
     console.log('the character in props in show character', character)
     console.log('user in props', user)
-    console.log('here is the user _id', user._id)
     useEffect(() => {
         getOneCharacter(id)
             .then(res => setCharacter(res.data.character))
@@ -65,7 +64,7 @@ const ShowCharacter = (props) => {
             // on failure send a failure message
             .catch(err => {                   
                 msgAlert({
-                    heading: 'Error removing pet',
+                    heading: 'Error removing character',
                     message: messages.removeCharacterFailure,
                     variant: 'danger'
                 })

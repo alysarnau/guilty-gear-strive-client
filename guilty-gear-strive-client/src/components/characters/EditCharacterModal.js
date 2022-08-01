@@ -44,7 +44,7 @@ const EditCharacterModal = (props) => {
         // once again, we get a similar function from createCharacter component
         e.preventDefault();
         // we want it to hit the updateCharacter function
-        updateCharacter(user, character)
+        updateCharacter(character)
         // if we're successful in the modal, we want the modal to close
             .then(() => handleClose())
             .then(() =>
