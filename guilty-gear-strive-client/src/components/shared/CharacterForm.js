@@ -1,6 +1,7 @@
 import {
     Form,
-    Button
+    Button,
+    Container
 } from 'react-bootstrap'
 
 import { createCharacter } from '../../api/characters';
@@ -20,35 +21,12 @@ import { useNavigate } from 'react-router-dom'
 // isADandy: boolean, k
 
 const CharacterForm = (props) => {
-    const { character, handleChange } = props
-    const navigate = useNavigate()
-    // this will handle form submission
-    const onCreate = (e) => {
-        e.preventDefault()
-        const { msgAlert, user } = props
-        console.log('the user', user)
-        createCharacter(character)
-            .then(res => console.log(res))
-            .then(() => {
-                msgAlert({
-					heading: 'Create Character Success',
-					message: messages.createCharacterSuccess,
-					variant: 'success',
-				})
-            })
-            .then(() => navigate('/'))
-            .catch((error) => {
-				msgAlert({
-					heading: 'Create character failed with error: ' + error.message,
-					message: messages.createCharacterFailure,
-					variant: 'danger',
-				})
-			})
-        }
+    const { character, handleChange, handleSubmit, header } = props
 
     return (
-        <div>
-            <Form onSubmit={onCreate}>
+        <Container className="justify-content-center">
+            <h3>{header}</h3>
+            <Form onSubmit={handleSubmit}>
                 <Form.Label htmlFor='name'>Character Name</Form.Label>
                 <Form.Control 
                     name="name" 
@@ -67,12 +45,11 @@ const CharacterForm = (props) => {
                     value={ character.race }
                     onChange={ handleChange }
                 />
-                <Form.Label htmlFor='age'>Character Age (if applicable)</Form.Label>
-                {/* TODO: how to make this not required? */}
+                <Form.Label htmlFor='age'>Character Age (if unknown, type 'unknown')</Form.Label>
                 <Form.Control 
                     name="age" 
                     id="age" 
-                    type="number" 
+                    type="string" 
                     placeholder="Enter Character Age"
                     value={ character.age }
                     onChange={ handleChange }
@@ -136,7 +113,7 @@ const CharacterForm = (props) => {
                     Submit
                 </Button>
             </Form>
-        </div>
+        </Container>
     );
 }
 

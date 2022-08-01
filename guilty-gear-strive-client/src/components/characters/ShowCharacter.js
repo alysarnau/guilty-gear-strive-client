@@ -69,7 +69,6 @@ const ShowCharacter = (props) => {
                             </small></div>
                     </Card.Text>
                 </Card.Body>
-                <UpdateCharacter character={character} />
                 <DeleteCharacter msgAlert={msgAlert} character={character}/>
             </Card>
         </Container>
