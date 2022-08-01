@@ -14,7 +14,7 @@ import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 import ShowCharacter from './components/characters/ShowCharacter'
 import CreateCharacter from './components/characters/CreateCharacter'
-import UpdateCharacter from './components/characters/UpdateCharacter'
+import EditCharacterModal from './components/characters/EditCharacterModal'
 
 const App = () => {
 
@@ -86,7 +86,9 @@ const App = () => {
 					<Route 
 						path="/updateCharacter/:id"
 						element={ 
-								<UpdateCharacter msgAlert={msgAlert} user={user}/>
+								<RequireAuth user={user}>
+									<EditCharacterModal msgAlert={msgAlert} user={user}/>
+								</RequireAuth>
 						}
 					/>
 				</Routes>

@@ -29,13 +29,27 @@ export const createCharacter = (character) => {
 	})
 }
 
-export const deleteCharacter = (id) => {
-	return axios.delete(`${apiUrl}/characters/${id}`)
-	// {
-	// 	url:,
-	// 	method: 'DELETE',
-	// 	// headers: {
-	// 	// 	Authorization: `Token token=${user.token}`,
-	// 	// },
-	// })
+// UPDATE
+export const updateCharacter = (user, updatedCharacter) => {
+    console.log('this is updated pet', updatedCharacter)
+	return axios({
+		url: `${apiUrl}/characters/${updatedCharacter.id}`,
+		method: 'PATCH',
+		headers: {
+			Authorization: `Token token=${user.token}`,
+		},
+		data: { character: updatedCharacter } ,
+	})
+}
+
+// DELETE
+export const removeCharacter = (user, characterId) => {
+    console.log('this is deleted character id', characterId)
+	return axios({
+		url: `${apiUrl}/characters/${characterId}`,
+		method: 'DELETE',
+		headers: {
+			Authorization: `Token token=${user.token}`,
+		}
+	})
 }

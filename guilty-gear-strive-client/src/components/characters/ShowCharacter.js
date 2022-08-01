@@ -1,12 +1,14 @@
 import React from 'react';
 import { 
     Container,
-    Card
+    Card,
+    Button,
+    Modal
 } from 'react-bootstrap';
 import { Link } from 'react-router-dom'
 import LoadingScreen from '../shared/LoadingScreen';
-import DeleteCharacter from '../shared/DeleteCharacter';
-// import getOnePet function
+import { removeCharacter } from '../../api/characters';
+// import getOneCharacter function
 import { getOneCharacter } from '../../api/characters'
 // this will allow us to set our params
 import { 
@@ -20,7 +22,7 @@ import {
     useState, 
     useEffect 
 } from 'react'
-import UpdateCharacter from './UpdateCharacter';
+import EditCharacterModal from './EditCharacterModal'
 
 const ShowCharacter = (props) => {
     const [character, setCharacter] = useState(null)
@@ -31,7 +33,7 @@ const ShowCharacter = (props) => {
     // useNav returns a function
     // we can call that function to redirect the user wherever we want to
 
-    const { msgAlert } = props;
+    const { user, msgAlert } = props;
     useEffect(() => {
         getOneCharacter(id)
             .then(res => setCharacter(res.data.character))
@@ -69,7 +71,30 @@ const ShowCharacter = (props) => {
                             </small></div>
                     </Card.Text>
                 </Card.Body>
-                <DeleteCharacter msgAlert={msgAlert} character={character}/>
+                <Card.Footer>
+                {
+                    character.owner && user && character.owner._id === user._id ? 
+                        <>
+                            <Button 
+                                onClick={() => setEditModalShow(true)} 
+                                className="m-2" 
+                                variant="warning"
+                            >
+                                Edit Character
+                            </Button> 
+                            <Button 
+                            // TODO: FUTURE PROMISING HERE
+                                onClick={() => removeTheCharacter()} 
+                                className="m-2" 
+                                variant="danger"
+                            >
+                                Defeat the Character
+                            </Button> 
+                        </>
+                        :
+                        null
+                    }
+                </Card.Footer>
             </Card>
         </Container>
     );
