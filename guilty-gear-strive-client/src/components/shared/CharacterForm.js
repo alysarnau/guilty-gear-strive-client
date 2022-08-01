@@ -49,7 +49,7 @@ const CharacterForm = (props) => {
                 <Form.Control 
                     name="age" 
                     id="age" 
-                    type="string" 
+                    type="number" 
                     placeholder="Enter Character Age"
                     value={ character.age }
                     onChange={ handleChange }
@@ -101,8 +101,8 @@ const CharacterForm = (props) => {
                 />
                 <Form.Check
                     label="Is this character a Dandy?" 
-                    id="isADancy" 
-                    name="isADancy"
+                    id="isADandy" 
+                    name="isADandy"
                     defaultChecked={ character.isADandy }
                     onChange={ handleChange }
                 />

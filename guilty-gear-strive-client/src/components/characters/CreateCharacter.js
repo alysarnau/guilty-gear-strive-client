@@ -21,8 +21,9 @@ const CreateCharacter = (props) => {
     // this will handle typing in the form!
     const handleChange = (e) => {
         setCharacter(prevCharacter => {
-            const updatedValue = e.target.value;
+            let updatedValue = e.target.value;
             const updatedName = e.target.name;
+            // console.log('here is the updated name and value: \n', updatedName, updatedValue)
             if (e.target.type === 'number') {
                 // this is looking at the input type and changing it from the default, which is a string, into an actual number
                 updatedValue = parseInt(e.target.value)
@@ -36,6 +37,8 @@ const CreateCharacter = (props) => {
             const updatedCharacter = {
                 [updatedName]: updatedValue
             }
+            console.log('here is updatedCharacter', updatedCharacter)
+            console.log(character)
             return {
                 // we can spread out the previous object
                 ...prevCharacter, 
@@ -49,20 +52,20 @@ const CreateCharacter = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         // we want it to hit the createCharacter function
-        createCharacter(user, character)
+        createCharacter(character)
         // if successful, navigate to the show page for the new pet
             .then((res) => { navigate(`/characters/${res.data.character.id}`)})
         // send a success message to the user
             .then(() =>
                 msgAlert({
                     heading: 'Create Character Success',
-                    message: messages.createPetSuccess,
+                    message: messages.createCharacterSuccess,
                     variant: 'success',
                 })
             )
             .catch(msgAlert({
                 heading: 'Create Character Error',
-                message: messages.createPetFailure,
+                message: messages.createCharacterFailure,
                 variant: 'danger',
             }))
     }
@@ -73,7 +76,6 @@ const CreateCharacter = (props) => {
                 character={ character } 
                 handleChange={ handleChange }
                 handleSubmit = { handleSubmit } 
-                user={user}
                 header="Create a Character"
             />
         </>
