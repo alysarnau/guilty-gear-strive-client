@@ -40,11 +40,11 @@ const EditCharacterModal = (props) => {
         })
     }
     const handleSubmit = (e) => {
-        // this is where we put updatePet! We need (user, updatedPet)
-        // once again, we get a similar function from createPet component
+        // this is where we put updateCharacter! We need (user, updatedPet)
+        // once again, we get a similar function from createCharacter component
         e.preventDefault();
-        // we want it to hit the updatePet function
-        updateCharacter(character)
+        // we want it to hit the updateCharacter function
+        updateCharacter(user, character)
         // if we're successful in the modal, we want the modal to close
             .then(() => handleClose())
             .then(() =>
@@ -55,7 +55,7 @@ const EditCharacterModal = (props) => {
                 })
             )
             // if successful, we need to trigger a refresh for the show page so we see the new information immediately
-            // this refreshes the state of the pet component to the updated information!
+            // this refreshes the state of the character component to the updated information!
             .then(()=> triggerRefresh())
             // this tells the user about an error
             .catch(msgAlert({

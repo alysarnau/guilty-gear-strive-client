@@ -78,15 +78,15 @@ const App = () => {
 					<Route 
 						path="/addCharacter"
 						element={ 
-							<RequireAuth user={user}>
 								<CreateCharacter msgAlert={msgAlert} user={user}/>
-							</RequireAuth>
 						}
 					/>
 					<Route 
 						path="/updateCharacter/:id"
 						element={ 
+							<RequireAuth user={user}>
 									<EditCharacterModal msgAlert={msgAlert} user={user}/>
+							</RequireAuth>
 						}
 					/>
 				</Routes>

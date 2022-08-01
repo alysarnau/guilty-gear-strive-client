@@ -26,7 +26,6 @@ const ShowCharacter = (props) => {
     const [character, setCharacter] = useState(null)
     const [editModalShow, setEditModalShow] = useState(false)
     const [updated, setUpdated] = useState(false)
-
     // destructuring to get the id value from our route params
     const { id } = useParams();
     const navigate = useNavigate()
@@ -36,6 +35,7 @@ const ShowCharacter = (props) => {
     const { user, msgAlert } = props;
     console.log('the character in props in show character', character)
     console.log('user in props', user)
+    console.log('here is the user _id', user._id)
     useEffect(() => {
         getOneCharacter(id)
             .then(res => setCharacter(res.data.character))
