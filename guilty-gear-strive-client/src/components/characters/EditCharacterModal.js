@@ -14,27 +14,28 @@ const EditCharacterModal = (props) => {
         msgAlert, 
         triggerRefresh, 
     } = props
-    const [pet, setPet] = useState(props.pet)
-    console.log('pet in edit modal', pet)
+    console.log('here is the user data', user)
+    const [character, setCharacter] = useState(props.character)
+    console.log('character in edit modal', character)
     const handleChange = (e) => {
         // we got this same function from create!
-        setPet(prevPet => {
+        setCharacter(prevCharacter => {
             let updatedValue = e.target.value;
             const updatedName = e.target.name;
             if (e.target.type === 'number') {
                 updatedValue = parseInt(e.target.value)
             }
-            if (updatedName === "adoptable" && e.target.checked) {
+            if (updatedName === "isADandy" && e.target.checked) {
                 updatedValue = true
-            } else if (updatedName === "adoptable" && !e.target.checked) {
+            } else if (updatedName === "isADandy" && !e.target.checked) {
                 updatedValue = false
             }
-            const updatedPet = {
+            const updatedCharacter = {
                 [updatedName]: updatedValue
             }
             return {
-                ...prevPet, 
-                ...updatedPet
+                ...prevCharacter, 
+                ...updatedCharacter
             }
         })
     }
@@ -43,13 +44,13 @@ const EditCharacterModal = (props) => {
         // once again, we get a similar function from createPet component
         e.preventDefault();
         // we want it to hit the updatePet function
-        updatePet(user, pet)
+        updateCharacter(character)
         // if we're successful in the modal, we want the modal to close
             .then(() => handleClose())
             .then(() =>
                 msgAlert({
-                    heading: 'Update Pet Success',
-                    message: messages.updatePetSuccess,
+                    heading: 'Update Character Success',
+                    message: messages.updateCharacterSuccess,
                     variant: 'success',
                 })
             )
@@ -58,8 +59,8 @@ const EditCharacterModal = (props) => {
             .then(()=> triggerRefresh())
             // this tells the user about an error
             .catch(msgAlert({
-                heading: 'Update Pet Error',
-                message: messages.updatePetFailure,
+                heading: 'Update Character Error',
+                message: messages.updateCharacterFailure,
                 variant: 'danger',
             }))
     }
@@ -68,15 +69,15 @@ const EditCharacterModal = (props) => {
         <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton />
             <Modal.Body>
-                <PetForm 
-                    pet={pet}
+                <CharacterForm 
+                    character={character}
                     handleChange={handleChange}
                     handleSubmit={handleSubmit}
-                    heading="Update Pet"
+                    heading="Update Character"
                 />
             </Modal.Body>
         </Modal>
     );
 }
 
-export default EditPetModal;
+export default EditCharacterModal;

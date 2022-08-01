@@ -30,14 +30,11 @@ export const createCharacter = (character) => {
 }
 
 // UPDATE
-export const updateCharacter = (user, updatedCharacter) => {
-    console.log('this is updated pet', updatedCharacter)
+export const updateCharacter = (updatedCharacter) => {
+    console.log('this is updated character', updatedCharacter)
 	return axios({
 		url: `${apiUrl}/characters/${updatedCharacter.id}`,
 		method: 'PATCH',
-		headers: {
-			Authorization: `Token token=${user.token}`,
-		},
 		data: { character: updatedCharacter } ,
 	})
 }

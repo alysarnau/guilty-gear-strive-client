@@ -11,6 +11,8 @@ const messages = {
 	createCharacterSuccess: "Successfully created a new character!",
 	deleteCharacterSuccess: "Successfully deleted character.",
 	deleteCharacterFailure: 'Error deleting character, please try again.',
+	updateCharacterSuccess: "Successfully updated character.",
+	updateCharacterFailure: 'Error updating character, please try again.'
 }
 
 module.exports = messages

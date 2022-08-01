@@ -4,11 +4,6 @@ import {
     Container
 } from 'react-bootstrap'
 
-import { createCharacter } from '../../api/characters';
-// TODO: later import updateCharacter here as well!
-import messages from '../shared/AutoDismissAlert/messages';
-import { useNavigate } from 'react-router-dom'
-
 // character model fields:
 // name: '', k
 // race: '',k
@@ -22,6 +17,7 @@ import { useNavigate } from 'react-router-dom'
 
 const CharacterForm = (props) => {
     const { character, handleChange, handleSubmit, header } = props
+    console.log('here is the character from props in the Character Form', character)
 
     return (
         <Container className="justify-content-center">
